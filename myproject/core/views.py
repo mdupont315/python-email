@@ -15,5 +15,5 @@ class Index(EmailMixin, TemplateView):
         return context
 
     def post(self, request, *args, **kwargs):
-        self.send_email()
+        self.send_mail()
         return HttpResponseRedirect(reverse_lazy('core:index'))
