@@ -12,7 +12,7 @@ class EmailMixin:
 
     def send_mail(self):
         """
-        Método para envio de email seguindo padrão send_mail do django
+        Método para envio de email seguindo padrão send_mail do Django.
         """
         subject = self.email_subject
         from_ = self.email_from
@@ -32,6 +32,7 @@ class EmailMixin:
         return context
 
     def get_email_to(self):
-        if self.request.POST.get('email_to'):
-            return self.request.POST.get('email_to')
-        return 'none'
+        email_to = self.request.POST.get('email_to')
+        if email_to:
+            return email_to
+        return ''
