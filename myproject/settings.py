@@ -17,7 +17,7 @@ DEBUG = config('DEBUG', default=False, cast=bool)
 
 ALLOWED_HOSTS = config('ALLOWED_HOSTS', default=[], cast=Csv())
 
-DEFAULT_FROM_EMAIL = config('DEFAULT_FROM_EMAIL')
+DEFAULT_FROM_EMAIL = config('DEFAULT_FROM_EMAIL', 'webmaster@localhost')
 
 
 # Application definition
@@ -43,13 +43,15 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
+# EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 # EMAIL_BACKEND = config('EMAIL_BACKEND')
-EMAIL_HOST = config('EMAIL_HOST')
-EMAIL_PORT = config('EMAIL_PORT', cast=int)
-EMAIL_USE_TLS = config('EMAIL_USE_TLS')
-EMAIL_HOST_USER = config('EMAIL_HOST_USER')
-EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')
+# EMAIL_HOST = config('EMAIL_HOST', '0.0.0.0')
+EMAIL_HOST = config('EMAIL_HOST', 'localhost')
+EMAIL_PORT = config('EMAIL_PORT', 1025, cast=int)
+EMAIL_USE_TLS = config('EMAIL_USE_TLS', False)
+EMAIL_HOST_USER = config('EMAIL_HOST_USER', 'webmaster@localhost')
+EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD', '')
 
 ROOT_URLCONF = 'myproject.urls'
 
