@@ -11,7 +11,7 @@ Example to send email with Django
 * Run the migrations.
 
 ```
-git clone https://github.com/rg3915/simple-django-email.git
+git clone https://github.com/Senguly/python-email.git
 cd simple-django-email
 python -m venv .venv
 source .venv/bin/activate
